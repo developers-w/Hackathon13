@@ -56,7 +56,6 @@ function quitarItem(e){
          const posicion=e.target.parentElement.id;
          const nuevoArray = data.filter(el=> el.Id != posicion);
 
-
         loadPage()
     }
 
