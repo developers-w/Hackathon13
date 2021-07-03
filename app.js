@@ -1,27 +1,33 @@
 import {data} from './dataBase.js';
 
 const cards=document.querySelector('.cards');
-cards.innerHTML =''; // quitar maquetacion de card para hacerlo dinamico
+cards.innerHTML =''; // quita la maquetacion de card para hacerlo dinamico
 
+let dat=data;
 
 
 document.addEventListener('DOMContentLoaded',loadPage);
 
 
-const perritos=data;
+
+
+
+cards.addEventListener('click',quitarItem);
 
 
 function loadPage(){
+    cards.innerHTML ='';
+    const perrito=dat;
     let contenedor = document.createElement('div');
-    perritos.forEach(el=>{
+    perrito.forEach(el=>{
 
         contenedor =`
 
         <div id="card">
-        <div class="head">
-                       <a href="#" id="editar" >Edit</a>
+        <div class="head" id="${el.Id}">
+                       <a href="#" class="editar" >Edit</a>
                        <div><img src="${el.image}" alt=""></div>
-                       <a href="#" id="delete">Delete</a>
+                       <a href="#" class="delete">Delete</a>
                    </div>
                    <div class='content'>
                        <p>${el.Nombre}</p>
@@ -42,6 +48,17 @@ function loadPage(){
     
 
 
+
+}
+
+function quitarItem(e){
+    if(e.target.classList.contains('delete')){
+         const posicion=e.target.parentElement.id;
+         const nuevoArray = data.filter(el=> el.Id != posicion);
+        
+
+        loadPage()
+    }
 
 }
 

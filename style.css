@@ -30,6 +30,7 @@ body{
 nav{
     height: 70px;
     width: 100%;
+    padding: 20px;
     background:#c3c3c3;
     display: flex;
     flex-wrap: wrap;
