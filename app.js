@@ -55,7 +55,7 @@ function quitarItem(e){
     if(e.target.classList.contains('delete')){
          const posicion=e.target.parentElement.id;
          const nuevoArray = data.filter(el=> el.Id != posicion);
-        
+
 
         loadPage()
     }
